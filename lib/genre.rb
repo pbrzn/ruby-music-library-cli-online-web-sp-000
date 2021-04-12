@@ -20,9 +20,7 @@ class Genre
   end
   
   def self.create(name)
-    Genre.new(name).tap do |genre|
-      genre.save
-    end
+    Genre.new(name).tap {|genre| genre.save}
   end
   
   def songs
@@ -38,11 +36,7 @@ class Genre
   end
   
   def add_song(song)
-    if song.genre != self
-      song.genre=self
-    end
-    if !self.songs.include?(song)
-      @songs << song
-    end
+    song.genre=self if song.genre != self
+    @songs << song if !self.songs.include?(song)
   end
 end

@@ -23,9 +23,7 @@ class Artist
   end
   
   def self.create(name)
-    Artist.new(name).tap do |artist|
-      artist.save
-    end
+    Artist.new(name).tap {|artist| artist.save}
   end
   
   def songs
@@ -41,11 +39,7 @@ class Artist
   end
   
   def add_song(song)
-    if song.artist != self
-      song.artist=self
-    end
-    if !self.songs.include?(song)
-      @songs << song
-    end
+    song.artist=self if song.artist != self
+    @songs << song if !self.songs.include?(song)
   end
 end

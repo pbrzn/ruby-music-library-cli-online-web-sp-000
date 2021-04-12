@@ -12,9 +12,7 @@ class MusicImporter
   end
   
   def files
-    @files = Dir.entries(path)
-    @files.delete_if {|file| !file.include?(".mp3")}
-    @files
+    @files = Dir.entries(path).delete_if {|file| !file.include?(".mp3")}
   end
   
   def import
