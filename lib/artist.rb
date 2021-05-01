@@ -1,6 +1,3 @@
-require 'pry'
-#require_relative './song'
-
 class Artist
   extend Concerns::Findable
   attr_accessor :name, :genre
